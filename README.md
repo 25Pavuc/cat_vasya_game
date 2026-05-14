@@ -1,14 +1,18 @@
-# Модуль 2. Класс Character
+# Модуль 3. Заклинания и мана
 
 ## Описание
-Модуль реализует класс `Character`, наследующий от абстрактного класса `Unit`. Персонаж имеет привязку к игровому классу (`warrior`, `mage`, `hunter`).
+Модуль добавляет в игру систему заклинаний и маны.
 
 ## Что сделано
 
-### 1. Создан класс Character, наследующий переменные класса Unit
+### 1. Создан абстрактный класс Spell
 ```python
-class Character(Unit):
-    def __init__(self, character_class, strength, dexterity, constitution,
-                 wisdom, intelligence, charisma):
-        super().__init__(strength, dexterity, constitution,
-                         wisdom, intelligence, charisma)
+class Spell(ABC):
+    def __init__(self, name, damage, mana_cost):
+        self.name = name
+        self.damage = damage
+        self.mana_cost = mana_cost
+    
+    @abstractmethod
+    def cast(self):
+        pass
