@@ -1,18 +1,14 @@
-# Модуль 1. Абстрактный класс Unit
+# Модуль 2. Класс Character
 
 ## Описание
-Модуль содержит абстрактный базовый класс `Unit`, который служит основой для всех игровых юнитов (персонажей, монстров и т.д.).
+Модуль реализует класс `Character`, наследующий от абстрактного класса `Unit`. Персонаж имеет привязку к игровому классу (`warrior`, `mage`, `hunter`).
 
 ## Что сделано
 
-### 1. Создан абстрактный класс Unit
+### 1. Создан класс Character, наследующий переменные класса Unit
 ```python
-class Unit(ABC):
-    def __init__(self, strength, dexterity, constitution, wisdom,
-                 intelligence, charisma):
-        self.strength = strength
-        self.dexterity = dexterity
-        self.constitution = constitution
-        self.wisdom = wisdom
-        self.intelligence = intelligence
-        self.charisma = charisma
+class Character(Unit):
+    def __init__(self, character_class, strength, dexterity, constitution,
+                 wisdom, intelligence, charisma):
+        super().__init__(strength, dexterity, constitution,
+                         wisdom, intelligence, charisma)
